@@ -51,8 +51,7 @@ Step 5: Generate Interpolated Fourier-Series Output
     double start_point = 0;
     double end_point = data.size();
 
-    std::vector<double> interpolated_data =
-        fft.GraphFourierSeries(num_of_points, delta, start_point, end_point);
+    std::vector<double> interpolated_data = fft.GraphFourierSeries(num_of_points, delta, start_point, end_point);
 
 Parameter Descriptions:
     num_of_points  - Number of reconstructed sample points to generate
