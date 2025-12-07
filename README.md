@@ -71,13 +71,43 @@ Step 6: Display or Graph the Output
 ------------------------------------------------------------
 Building the Project
 ------------------------------------------------------------
-Compile using any C++17-supported compiler:
+This project includes a Makefile for compiling all source files
+and creating the final executable.
 
-    g++ -std=c++17 main.cpp FFT.cpp -o fft_demo
+To build the program, simply run:
 
-Run with:
+    make
 
-    ./fft_demo
+This will:
+
+ - Compile main.cpp, Complex.cpp, and FFT.cpp
+ - Produce the object files: main.o, Complex.o, FFT.o
+ - Link them into an executable named: program
+
+Your Makefile contains the following rules:
+
+    all: main.o Complex.o FFT.o
+            g++ -g main.o Complex.o FFT.o -o program
+
+    main.o: main.cpp
+            g++ -g -c main.cpp
+
+    Complex.o: Complex.cpp
+            g++ -g -c Complex.cpp
+
+    FFT.o: FFT.cpp
+            g++ -g -c FFT.cpp
+
+    clean:
+            rm -f *.o program
+
+To remove all build artifacts and start fresh, run:
+
+    make clean
+
+After compilation, run the program with:
+
+    ./program
 
 ------------------------------------------------------------
 File Structure
